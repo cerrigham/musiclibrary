@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fulcri demo</title>
+</head>
+<body>
+        <div>
+            <label>Titolo</label>
+            <div>
+                <input type="text" id="titolo"/>
+            </div>
+            <label>Album</label>
+            <div>
+                <input type="text" id="album"/>
+            </div>
+            <label>Artista</label>
+            <div>
+                <input type="text" id="artista"/>
+            </div>
+            <div>
+                <button type="submit" onclick="save()">Salva</button>
+            </div>
+        </div>
+</body>
+
+<script language="JavaScript">
+    function save() {
+$.ajax({
+    url : "https://example.com/rest/getData", // Url of backend (can be python, php, etc..)
+    type: "POST", // data type (can be get, post, put, delete)
+    data : formData, // data in json format
+  	async : false, // enable or disable async (optional, but suggested as false if you need to populate data afterwards)
+    success: function(response, textStatus, jqXHR) {
+    	console.log(response);
+    },
+    error: function (jqXHR, textStatus, errorThrown) {
+		console.log(jqXHR);
+      	console.log(textStatus);
+      	console.log(errorThrown);
+    }
+});
+}
+</script>
+</html>
